@@ -1,0 +1,22 @@
+{
+  "name": "green-process-scheduling",
+  "version": "1.0.0",
+  "description": "Schedules energy-intensive batch processes at cheap times",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sarthyparty/green-process-scheduling.git"
+  },
+  "keywords": [
+    "renewable"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sarthyparty/green-process-scheduling/issues"
+  },
+  "homepage": "https://github.com/sarthyparty/green-process-scheduling#readme"
+}
