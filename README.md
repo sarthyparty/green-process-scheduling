@@ -10,7 +10,7 @@ Why is this helpful?
 
 ## Installation
 
-``npm i -g gschedule``
+``npm i -g gschedule`` (might need sudo at the front)
 
 ## Usage
 
