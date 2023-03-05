@@ -44,7 +44,7 @@ yargs.command({
     let time = today.getHours() + ":" + today.getMinutes()
     let [hours, minutes] = argv.eta.split('-')
     console.log(`Scheduled job ${argv.name}: ${argv.command}\nWill run at ${time} for ${hours} hours and ${minutes} minutes.`)
-    RequestData(argv.range-hours)
+    RequestData(argv.range-hours, argv.command)
   }
 })
 

@@ -4,7 +4,7 @@
 const { calcWindEnergy, calcSolarEnergy } = require("./calculations");
 const createCronJob = require("./createCronJob");
 
-function RequestData(range) {
+function RequestData(range, job) {
     const fetch = require("node-fetch");
 
     fetch("https://api.weather.gov/points/43.0722,-89.4008")
@@ -47,7 +47,7 @@ function RequestData(range) {
            
         }
 
-        createCronJob(bestTime)
+        createCronJob(bestTime, job)
         // console.log(`${bestTime}`)
         //console.log(bestTime)
 
