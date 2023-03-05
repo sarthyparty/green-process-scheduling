@@ -1,6 +1,6 @@
 {
   "name": "gschedule",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Schedules energy-intensive batch processes at cheap times",
   "main": "bin/index.js",
   "scripts": {
