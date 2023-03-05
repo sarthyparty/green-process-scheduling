@@ -10,6 +10,13 @@ Why is this helpful?
 
 ## Usage
 
+To Create a Schedule Job:
+
+``gschedule create --name=<name> --command="<command or script to run>" --eta=<hours:minutes> --range=<must in run in this many hours>``
+
+Example:
+
+``gschedule create --name=test --command="echo HELLO" --eta=0:5 --range=12``
 
 ## How it Works
 
