@@ -12,7 +12,11 @@ Why is this helpful?
 
 To Create a Schedule Job:
 
-``gschedule create --name=<name> --command="<command or script to run>" --eta=<hours:minutes> --range=<must in run in this many hours>``
+``gschedule create
+      --name=<name> 
+      --command="<command or script to run>" 
+      --eta=<hours:minutes> 
+      --range=<must in run in this many hours>``
 
 Example:
 
