@@ -1,5 +1,6 @@
 #!/usr/bin/env node
-const yargs = require('yargs')
+const yargs = require('yargs');
+const RequestData = require('./RequestData');
 // .usage('Usage: gschedule <command> [options]')
 // .command('create', 'Schedules a job to be run.')
 // .example('gschedule create -s "echo hello world"', 'Create a scheduled job')
@@ -42,6 +43,7 @@ yargs.command({
     let time = today.getHours() + ":" + today.getMinutes()
     let [hours, minutes] = argv.eta.split('-')
     console.log(`Scheduled job ${argv.name}: ${argv.command}\nWill run at ${time} for ${hours} hours and ${minutes} minutes.`)
+    RequestData(argv.range-hours)
   }
 })
 
