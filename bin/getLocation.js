@@ -24,7 +24,6 @@ exec('curl ifconfig.me', (err, output) => {
     
     // });
     
-      
     })
     
 })

@@ -1,6 +1,6 @@
 function createCronJob(bestTime, job) {
 
-    const cron = require('node-cron');
+    const { exec } = require('child_process')
     // ...
 
     // Schedule tasks to be run on the server.
