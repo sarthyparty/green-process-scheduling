@@ -120,7 +120,6 @@ function getWindData() {
         let lines = input.toString().split("\n")
         for (let i = 0; i < lines.length; i++) {
             let columns = lines[i].split(",");
-            //console.log(abbrev_to_us_state[columns[5]])
            wind[abbrev_to_us_state[columns[5]]] += 1
           
         }
