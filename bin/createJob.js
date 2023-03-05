@@ -1,5 +1,8 @@
+const executeJob = require("./executeJob")
+
 function createJob(bestTime, job) {
     // ...
+    const cron = require("node-cron")
 
     // Schedule tasks to be run on the server.
     let minute = bestTime.getMinutes;
@@ -9,7 +12,7 @@ function createJob(bestTime, job) {
         executeJob(job)
     });
 
-    console.log(`${bestTime.getHours()}:${bestTime.getMinutes()}`)
+    // console.log(`${bestTime.getHours()}:${bestTime.getMinutes()}`)
 }
 
 module.exports = createJob
