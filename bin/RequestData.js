@@ -53,7 +53,7 @@ function RequestData(range, job, location) {
         // bestTime.setMinutes(time.getMinutes()+1)
 
         console.log(`You are in ${location}`)
-        console.log(`Will run on the ${bestTime.getDate()}th, at ${bestTime.getHours()}:${bestTime.getMinutes()}`)
+        console.log(`Job will run on the ${bestTime.getDate()}th, at ${bestTime.getHours()}:${bestTime.getMinutes()} (24 HR Time)`)
         // console.log(`${bestTime}`)
         
         createJob(bestTime, job)

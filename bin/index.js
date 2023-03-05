@@ -42,7 +42,7 @@ yargs.command({
     let today = new Date();
     let time = today.getHours() + ":" + today.getMinutes()
     let [hours, minutes] = argv.eta.split('-')
-    console.log(`Scheduled job ${argv.name}: ${argv.command}`)
+    console.log(`Scheduling job ${argv.name}: <${argv.command}>`)
     getLocation(argv.range-hours, argv.command)
   }
 })
