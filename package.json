@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/sarthyparty/green-process-scheduling#readme",
   "dependencies": {
+    "node-fetch": "^2.6.9",
     "yargs": "^17.7.1"
   }
 }
