@@ -2,7 +2,7 @@
 // globalThis.fetch = fetch;
 
 const { calcWindEnergy, calcSolarEnergy } = require("./calculations");
-const createCronJob = require("./createCronJob");
+const createJob = require("./createJob");
 
 function RequestData(range, job) {
     const fetch = require("node-fetch");
@@ -47,7 +47,11 @@ function RequestData(range, job) {
            
         }
 
-        createCronJob(bestTime, job)
+        console.log(`Will run at ${bestTime.getHours()}:${bestTime.getMinutes()}`)
+        console.log(`${bestTime}`)
+        let testTime = new Date()
+        testTime.setMinutes(time.getMinutes()+1)
+        createJob(testTime, job)
         // console.log(`${bestTime}`)
         //console.log(bestTime)
 
@@ -59,6 +63,7 @@ function RequestData(range, job) {
 
 }
 
+RequestData(12, "")
 
 
 // class RequestData() {
