@@ -10,7 +10,6 @@ function getWindData() {
         "CT": "Connecticut",
         "DE": "Delaware",
         "DC": "District Of Columbia",
-        "FM": "Federated States Of Micronesia",
         "FL": "Florida",
         "GA": "Georgia",
         "GU": "Guam",
@@ -126,7 +125,7 @@ function getWindData() {
           
         }
     
-    
+    console.log(wind['New Mexico'])
     
     })
     
@@ -134,6 +133,61 @@ function getWindData() {
 }
 
 getWindData()
+function windDataFinal {
+let windData = {
+    "Alabama": 0,
+    "Alaska": 142,
+    "Arizona": 286,
+    "Arkansas": 1,
+    "California": 5974,
+    "Connecticut": 3,
+    "Delaware": 1,
+    "Florida": 0,
+    "Georgia": 0,
+    "Hawaii": 129,
+    "Idaho": 541,
+    "Illinois": 3551,
+    "Indiana": 1614,
+    "Iowa": 6220,
+    "Kansas": 3962,
+    "Kentucky": 0,
+    "Louisiana": 0,
+    "Maine": 417,
+    "Maryland": 80,
+    "Massachusetts": 92,
+    "Michigan": 1631,
+    "Minnesota": 2687,
+    "Mississippi": 0,
+    "Missouri": 1174,
+    "Montana": 803,
+    "Nebraska": 1541,
+    "Nevada": 68,
+    "New Hampshire": 84,
+    "New Jersey": 6,
+    "New Mexico": 1952,
+    "New York": 1231,
+    "North Carolina": 105,
+    "North Dakota": 2134,
+    "Ohio": 499,
+    "Oklahoma": 5487,
+    "Oregon": 2120,
+    "Pennsylvania": 751,
+    "Rhode Island": 35,
+    "South Carolina": 0,
+    "South Dakota": 1411,
+    "Tennessee": 18,
+    "Texas": 18586,
+    "Utah": 208,
+    "Vermont": 73,
+    "Virginia": 2,
+    "Washington": 1826,
+    "West Virginia": 419,
+    "Wisconsin": 451,
+    "Wyoming": 1456
+}
+return windData
+
+}
 
 
 
