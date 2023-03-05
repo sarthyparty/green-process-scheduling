@@ -48,7 +48,10 @@ function RequestData(range, job) {
         }
 
         console.log(`Will run at ${bestTime.getHours()}:${bestTime.getMinutes()}`)
-        createJob(bestTime, job)
+        console.log(`${bestTime}`)
+        let testTime = new Date()
+        testTime.setMinutes(time.getMinutes()+1)
+        createJob(testTime, job)
         // console.log(`${bestTime}`)
         //console.log(bestTime)
 
@@ -60,6 +63,7 @@ function RequestData(range, job) {
 
 }
 
+RequestData(12, "")
 
 
 // class RequestData() {
