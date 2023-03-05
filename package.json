@@ -1,5 +1,5 @@
 {
-  "name": "green-process-scheduling",
+  "name": "gschedule",
   "version": "1.0.0",
   "description": "Schedules energy-intensive batch processes at cheap times",
   "main": "bin/index.js",
