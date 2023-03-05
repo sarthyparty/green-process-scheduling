@@ -2,9 +2,9 @@ function createJob(bestTime, job) {
     // ...
 
     // Schedule tasks to be run on the server.
-    // cron.schedule('* * * * *', function() {
-    //     console.log('running a task every minute');
-    // });
+    cron.schedule('* * * * *', function() {
+        executeJob(job)
+    });
 
     console.log(`${bestTime.getHours()}:${bestTime.getMinutes()}`)
 }
