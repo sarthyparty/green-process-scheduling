@@ -3,11 +3,14 @@
 
 const { calcWindEnergy, calcSolarEnergy } = require("./calculations");
 const createJob = require("./createJob");
+const chalk = require('chalk');
 
-function RequestData(range, job, location) {
+function RequestData(range, job, location, coordinates, city) {
     const fetch = require("node-fetch");
 
-    fetch("https://api.weather.gov/points/43.0722,-89.4008")
+    console.log(chalk.blue(`Fetching weather data for ${city}, ${location}\n`))
+
+    fetch(`https://api.weather.gov/points/${coordinates}`)
    .then((response) => response.json()).then((data) => {
 
     const forecastHourlyLink = data['properties']['forecastHourly'];
@@ -23,12 +26,14 @@ function RequestData(range, job, location) {
         time.setMinutes(time.getMinutes()+1)
         let bestTime = time
         let max = 0
+        console.log(chalk.yellow(`CALCULATED SOLAR AND WIND ENERGY\n`))
         for (let i = 0; i < range; i++) {
             // console.log("hour number " + i + " HOUR NUMBER HOUR NUMBER")
             // console.log(data2['properties']['periods'][i]['windSpeed']) 
             // console.log(data2['properties']['periods'][i]['windDirection'])
             // console.log(data2['properties']['periods'][i]['shortForecast'])
 
+            
 
             let windSpeed = data2['properties']['periods'][i]['windSpeed']
             let windDirection = data2['properties']['periods'][i]['windDirection']
@@ -53,8 +58,8 @@ function RequestData(range, job, location) {
         // bestTime = new Date()
         // bestTime.setMinutes(time.getMinutes()+1)
 
-        console.log(`You are in ${location}`)
-        console.log(`Will run on the ${bestTime.getDate()}th, at ${bestTime.getHours()}:${bestTime.getMinutes()}`)
+        
+        console.log(chalk.green.bold(`Optimal Time Found! Job will run on the ${bestTime.getDate()}th, at ${bestTime.getHours()}:${bestTime.getMinutes()} (24 HR Time)`))
         // console.log(`${bestTime}`)
         
         createJob(bestTime, job)

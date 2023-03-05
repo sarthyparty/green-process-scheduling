@@ -1,5 +1,5 @@
 {
-  "name": "green-process-scheduling",
+  "name": "gschedule",
   "version": "1.0.0",
   "description": "Schedules energy-intensive batch processes at cheap times",
   "main": "bin/index.js",
@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/sarthyparty/green-process-scheduling#readme",
   "dependencies": {
+    "chalk": "^4.1.2",
     "node-cron": "^3.0.0",
     "node-fetch": "^2.6.9",
     "yargs": "^17.7.1"
