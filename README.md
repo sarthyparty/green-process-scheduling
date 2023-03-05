@@ -1,4 +1,4 @@
-Green Process Scheduling
+#Green Process Scheduling
 
 The following project allows programmers to deploy any job (e.g. bash script to train an AI model) at the time where they will use the most clean energy.
 The program works by retrieving the user's IP address and subsequently their geolocation using cURL. It uses their latitude and longitude to use the 
