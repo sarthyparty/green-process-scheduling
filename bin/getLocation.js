@@ -16,11 +16,17 @@ function getLocation(range, job) {
             }
 
             const geographicJSON = JSON.parse(output2)
-            RequestData(range, job, geographicJSON['region'])
+            // console.log(geographicJSON)
+            // coordinates = geographicJSON['loc'].split(",")
+            console.log(geographicJSON['loc'])
+
+            RequestData(range, job, geographicJSON['region'], geographicJSON['loc'])
 
         })
     })
 }
+
+getLocation()
 
 module.exports = getLocation
 

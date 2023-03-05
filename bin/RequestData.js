@@ -4,10 +4,10 @@
 const { calcWindEnergy, calcSolarEnergy } = require("./calculations");
 const createJob = require("./createJob");
 
-function RequestData(range, job, location) {
+function RequestData(range, job, location, coordinates) {
     const fetch = require("node-fetch");
 
-    fetch("https://api.weather.gov/points/43.0722,-89.4008")
+    fetch(`https://api.weather.gov/points/${coordinates}`)
    .then((response) => response.json()).then((data) => {
 
     const forecastHourlyLink = data['properties']['forecastHourly'];
