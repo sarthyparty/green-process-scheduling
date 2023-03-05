@@ -72,7 +72,7 @@ function RequestData(range, job, location, coordinates, city) {
 
 }
 
-RequestData(12, "echo Hello", "Wisconsin")
+//RequestData(12, "echo Hello", "Wisconsin")
 
 
 // class RequestData() {
