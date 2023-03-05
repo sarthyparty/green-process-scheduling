@@ -1,5 +1,6 @@
+const RequestData = require("./RequestData")
 
-function getLocation() {
+function getLocation(range, job) {
     const { exec } = require('child_process')
     // run the `ls` command using exec
     var ip = ""
@@ -15,15 +16,11 @@ function getLocation() {
             }
 
             const geographicJSON = JSON.parse(output2)
-
-            console.log(geographicJSON['region'])
-
-
-
+            RequestData(range, job, geographicJSON['region'])
 
         })
     })
 }
 
-getLocation()
+module.exports = getLocation
 

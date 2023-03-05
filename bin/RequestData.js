@@ -4,7 +4,7 @@
 const { calcWindEnergy, calcSolarEnergy } = require("./calculations");
 const createJob = require("./createJob");
 
-function RequestData(range, job) {
+function RequestData(range, job, location) {
     const fetch = require("node-fetch");
 
     fetch("https://api.weather.gov/points/43.0722,-89.4008")
@@ -20,6 +20,7 @@ function RequestData(range, job) {
 
         // });
         let time = new Date()
+        time.setMinutes(time.getMinutes()+1)
         let bestTime = time
         let max = 0
         for (let i = 0; i < range; i++) {
@@ -35,9 +36,10 @@ function RequestData(range, job) {
             shortForecast.replace()
 
             let new_time = new Date()
+            new_time.setMinutes(new_time.getMinutes()+1)
             new_time.setHours(time.getHours()+i)
-            let windEnergy = calcWindEnergy(parseInt(windSpeed.split(" ")[0]))
-            let solarEnergy = calcSolarEnergy(shortForecast, new_time)
+            let windEnergy = calcWindEnergy(parseInt(windSpeed.split(" ")[0]), location)
+            let solarEnergy = calcSolarEnergy(shortForecast, new_time, location)
             
             // console.log(`Time: ${new_time}, Wind Energy: ${windEnergy}, Solar Energy: ${solarEnergy}`)
             if (windEnergy + solarEnergy > max) {
@@ -47,13 +49,14 @@ function RequestData(range, job) {
            
         }
 
-        console.log(`Will run at ${bestTime.getHours()}:${bestTime.getMinutes()}`)
-        console.log(`${bestTime}`)
-        let testTime = new Date()
-        testTime.setMinutes(time.getMinutes()+1)
-        createJob(testTime, job)
+        // bestTime = new Date()
+        // bestTime.setMinutes(time.getMinutes()+1)
+
+        console.log(`You are in ${location}`)
+        console.log(`Will run on the ${bestTime.getDate()}th, at ${bestTime.getHours()}:${bestTime.getMinutes()}`)
         // console.log(`${bestTime}`)
-        //console.log(bestTime)
+        
+        createJob(bestTime, job)
 
     });
     
@@ -63,7 +66,7 @@ function RequestData(range, job) {
 
 }
 
-RequestData(12, "")
+// RequestData(12, "echo Hello")
 
 
 // class RequestData() {

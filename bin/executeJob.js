@@ -1,4 +1,4 @@
-function executeJob(job) {
+function executeJob(job, task) {
     const { exec } = require('child_process')
 
     console.log("Executing job now!")
@@ -7,7 +7,9 @@ function executeJob(job) {
             console.error("could not execute command: ", err)
             return
         }
-        console.log("Job executed!")
+        console.log(`Job executed. Output: ${output}`)
+        task.stop()
+
     })
 }
 
