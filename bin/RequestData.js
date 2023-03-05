@@ -26,7 +26,7 @@ function RequestData(range, job, location, coordinates, city) {
         time.setMinutes(time.getMinutes()+1)
         let bestTime = time
         let max = 0
-        console.log(chalk.yellow(`CALCULATED SOLAR AND WIND ENERGY\n`))
+        console.log(chalk.yellow(`Finding optimal time...`))
         for (let i = 0; i < range; i++) {
             // console.log("hour number " + i + " HOUR NUMBER HOUR NUMBER")
             // console.log(data2['properties']['periods'][i]['windSpeed']) 
