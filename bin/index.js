@@ -50,6 +50,12 @@ yargs.command({
       console.log(chalk.red.bold(err))
       return
     }
+
+    if (argv.range-hours > 24) {
+      let err = "Scheduling Job FAILED: Time range must be less than or equal to 24 hours"
+      console.log(chalk.red.bold(err))
+      return
+    }
     console.log(chalk.green.bold(`Scheduling job ${argv.name}: <${argv.command}>\n`))
     getLocation(argv.range-hours, argv.command)
   }
