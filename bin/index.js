@@ -1,5 +1,8 @@
 #!/usr/bin/env node
 const yargs = require('yargs');
+const chalk = require('chalk');
+
+
 const getLocation = require('./getLocation');
 // .usage('Usage: gschedule <command> [options]')
 // .command('create', 'Schedules a job to be run.')
@@ -42,7 +45,12 @@ yargs.command({
     let today = new Date();
     let time = today.getHours() + ":" + today.getMinutes()
     let [hours, minutes] = argv.eta.split(':')
-    console.log(`Scheduling job ${argv.name}: <${argv.command}>`)
+    if (argv.range-hours <= 0) {
+      let err = "Scheduling Job FAILED: Not enough time to allocate"
+      console.log(chalk.red.bold(err))
+      return
+    }
+    console.log(chalk.green.bold(`Scheduling job ${argv.name}: <${argv.command}>\n`))
     getLocation(argv.range-hours, argv.command)
   }
 })
