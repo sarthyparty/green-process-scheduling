@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 const yargs = require('yargs');
 const RequestData = require('./RequestData');
+const createCronJob = require('./createCronJob')
 // .usage('Usage: gschedule <command> [options]')
 // .command('create', 'Schedules a job to be run.')
 // .example('gschedule create -s "echo hello world"', 'Create a scheduled job')

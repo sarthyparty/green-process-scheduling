@@ -2,6 +2,7 @@
 // globalThis.fetch = fetch;
 
 const { calcWindEnergy, calcSolarEnergy } = require("./calculations");
+const createCronJob = require("./createCronJob");
 
 function RequestData(range) {
     const fetch = require("node-fetch");
@@ -12,12 +13,12 @@ function RequestData(range) {
     const forecastHourlyLink = data['properties']['forecastHourly'];
 
     fetch(forecastHourlyLink).then((response2) => response2.json()).then((data2) => {
-        console.log(data2['properties']['periods']);
-        (data2['properties']['periods']).forEach(function(number) {
-            if (number['number'] === '25') 
-            console.log(number);
+        // console.log(data2['properties']['periods']);
+        // (data2['properties']['periods']).forEach(function(number) {
+        //     if (number['number'] === '25') 
+        //     console.log(number);
 
-        });
+        // });
         let time = new Date()
         let bestTime = time
         let max = 0
@@ -38,14 +39,16 @@ function RequestData(range) {
             let windEnergy = calcWindEnergy(parseInt(windSpeed.split(" ")[0]))
             let solarEnergy = calcSolarEnergy(shortForecast, new_time)
             
-            console.log(`Time: ${new_time}, Wind Energy: ${windEnergy}, Solar Energy: ${solarEnergy}`)
+            // console.log(`Time: ${new_time}, Wind Energy: ${windEnergy}, Solar Energy: ${solarEnergy}`)
             if (windEnergy + solarEnergy > max) {
                 bestTime = new_time
                 max = windEnergy + solarEnergy
             }
            
         }
-        console.log(`${bestTime}`)
+
+        createCronJob(bestTime)
+        // console.log(`${bestTime}`)
         //console.log(bestTime)
 
     });
@@ -63,5 +66,4 @@ function RequestData(range) {
 // }
 
 // export default RequestData;
-RequestData(12);
 module.exports = RequestData
