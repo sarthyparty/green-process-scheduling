@@ -110,7 +110,7 @@ function calcWindEnergy(speed, location) {
     return 0.5 * 1.2 * 100 * speed**3 * 0.3 * windData[location]
 }
 
-function calcSolarEnergy(shortForecast, time, location){
+function calcSolarEnergy(shortForecast, time, location, temperature){
     let dict = {
 
         "Slight Chance Rain Showers": 0.7,
@@ -133,12 +133,33 @@ function calcSolarEnergy(shortForecast, time, location){
     }; 
     
     if(time.getHours() < 10 || time.getHours() > 18){
-        return 0;
+        if(temperature > 77){
+            return 1.6369516 * 1380 * 0.2 * 0.2 * 1000 * (sun[location]) * 0.7
+        }else{
+            return 1.6369516 * 1380 * 0.2 * 0.2 * 1000 * (sun[location])
+        }
+        
+    }
+    if(time.getHours() < 10 && time.getHours() > 8|| time.getHours() < 18 && time.getHours() > 17){
+        if(temperature > 77){
+            return 1.6369516 * 1380 * 0.2 * 0.4 * 100 * (sun[location]) * 0.7
+        }else{
+            return 1.6369516 * 1380 * 0.2 * 0.4 * 100 * (sun[location])
+        }
     }
     if(!(shortForecast in dict)){
-        return 1.6369516 * 1380 * 0.2 * 0.5 * 1000 * (sun[location])
+        if(temperature > 77){
+            return 1.6369516 * 1380 * 0.2 * 0.4 * 100 * (sun[location]) * 0.7
+        }else{
+            return 1.6369516 * 1380 * 0.2 * 0.4 * 100 * (sun[location])
+        }
     }else{
-        return 1.6369516 * 1380 * 0.2 * (dict[shortForecast]) * 1000 * (sun[location])
+        if(temperature > 77){
+            return 1.6369516 * 1380 * 0.2 * (dict[shortForecast]) * 100 * (sun[location]) * 0.7
+        }else{
+            return 1.6369516 * 1380 * 0.2 * (dict[shortForecast]) * 100 * (sun[location])
+        }
+        
     }
     
 }

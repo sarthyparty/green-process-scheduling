@@ -33,15 +33,16 @@ function RequestData(range, job, location) {
             let windSpeed = data2['properties']['periods'][i]['windSpeed']
             let windDirection = data2['properties']['periods'][i]['windDirection']
             let shortForecast = data2['properties']['periods'][i]['shortForecast']
+            let temperature = data2['properties']['periods'][i]['temperature']
             shortForecast.replace()
 
             let new_time = new Date()
             new_time.setMinutes(new_time.getMinutes()+1)
             new_time.setHours(time.getHours()+i)
             let windEnergy = calcWindEnergy(parseInt(windSpeed.split(" ")[0]), location)
-            let solarEnergy = calcSolarEnergy(shortForecast, new_time, location)
+            let solarEnergy = calcSolarEnergy(shortForecast, new_time, location, parseInt(temperature))
             
-            // console.log(`Time: ${new_time}, Wind Energy: ${windEnergy}, Solar Energy: ${solarEnergy}`)
+            //console.log(`Time: ${new_time}, Wind Energy: ${windEnergy}, Solar Energy: ${solarEnergy}`)
             if (windEnergy + solarEnergy > max) {
                 bestTime = new_time
                 max = windEnergy + solarEnergy
@@ -66,7 +67,7 @@ function RequestData(range, job, location) {
 
 }
 
-// RequestData(12, "echo Hello")
+RequestData(12, "echo Hello", "Wisconsin")
 
 
 // class RequestData() {
